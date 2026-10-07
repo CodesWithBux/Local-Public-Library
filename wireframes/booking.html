@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error: Assistive Technology Suite.</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">Enlighten Hub</a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Find resources</a></li>
+        <li><a href="booking.html" aria-current="page">Book a room</a></li>
+        <li><a href="#">My bookings</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Find resources</a></li>
+        <li><a href="booking.html" aria-current="page">Assistive Technology Suite</a></li>
+      </ol>
+    </nav>
+
+    <div class="detail">
+      <article aria-labelledby="res-title">
+        <p class="meta"><span class="tag">Room</span> · In person · Ground floor</p>
+        <h1 id="res-title">Assistive Technology Suite</h1>
+        <div class="ph" aria-hidden="true">room photo</div>
+        <p>A private, step-free room with a height-adjustable desk, NVDA and JAWS screen readers, ZoomText magnification, a 40-cell braille display and a braille embosser. Library staff can help you get started.</p>
+
+        <h2>At a glance</h2>
+        <dl class="facts">
+          <dt>Capacity</dt><dd>Up to 3 people</dd>
+          <dt>Opening hours</dt><dd>Mon–Sat, 09:00–17:00</dd>
+          <dt>Location</dt><dd>Ground floor, next to the main entrance</dd>
+          <dt>Accessibility</dt><dd>Wheelchair accessible, hearing loop, screen-reader friendly</dd>
+        </dl>
+
+        <aside class="card" aria-labelledby="phone-heading">
+          <h2 id="phone-heading">Prefer to book by phone?</h2>
+          <p>Call <a href="tel:+27510000000">051 000 0000</a> and staff will reserve the room for you.</p>
+        </aside>
+      </article>
+
+      <section class="booking-panel" aria-labelledby="book-heading">
+        <h2 id="book-heading">Reserve this room</h2>
+
+        <!-- Error summary: in React it receives focus (tabindex="-1") after a failed submit -->
+        <div class="error-summary" tabindex="-1" aria-labelledby="err-heading">
+          <h3 id="err-heading">There are 2 problems with your booking</h3>
+          <ul>
+            <li><a href="#email">Enter an email address in the format name@example.com</a></li>
+            <li><a href="#card">Enter your library card number, for example EL123456</a></li>
+          </ul>
+        </div>
+
+        <form action="#" method="post" novalidate>
+          <p class="hint">All fields are required unless marked optional.</p>
+
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name" value="Thandiwe Mokoena">
+          </div>
+
+          <div class="field field--error">
+            <label for="email">Email address</label>
+            <span class="hint" id="email-hint">We’ll send your confirmation here.</span>
+            <input type="email" id="email" name="email" autocomplete="email" value="thandiwe@" aria-invalid="true" aria-describedby="email-hint email-error">
+            <span class="error-text" id="email-error">Enter an email address in the format name@example.com</span>
+          </div>
+
+          <div class="field field--error">
+            <label for="card">Library card number</label>
+            <span class="hint" id="card-hint">2 letters then 6 numbers, printed on the back of your card.</span>
+            <input type="text" id="card" name="card" inputmode="text" autocomplete="off" aria-invalid="true" aria-describedby="card-hint card-error">
+            <span class="error-text" id="card-error">Enter your library card number, for example EL123456</span>
+          </div>
+
+          <div class="field">
+            <label for="date">Date</label>
+            <span class="hint" id="date-hint">Bookings open up to 30 days ahead.</span>
+            <input type="date" id="date" name="date" aria-describedby="date-hint" value="2026-10-20">
+          </div>
+
+          <div class="field">
+            <label for="time">Start time</label>
+            <select id="time" name="time">
+              <option>09:00</option><option>10:00</option><option selected>11:00</option><option>14:00</option>
+            </select>
+          </div>
+
+          <fieldset class="field">
+            <legend class="label">How long do you need it?</legend>
+            <div class="check"><input type="radio" id="d1" name="duration" value="1" checked><label for="d1">1 hour</label></div>
+            <div class="check"><input type="radio" id="d2" name="duration" value="2"><label for="d2">2 hours</label></div>
+          </fieldset>
+
+          <div class="field">
+            <label for="needs">Access needs (optional)</label>
+            <span class="hint" id="needs-hint">Tell us anything that would help, e.g. “please set up JAWS”.</span>
+            <textarea id="needs" name="needs" rows="3" aria-describedby="needs-hint"></textarea>
+          </div>
+
+          <div class="check field">
+            <input type="checkbox" id="agree" name="agree" checked>
+            <label for="agree">I agree to the room-use guidelines</label>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Reserve room</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="annotations" aria-labelledby="notes-c">
+      <h2 id="notes-c">Wireframe annotations (for reviewers)</h2>
+      <ul>
+        <li>Every input has a &lt;label for&gt;; helper text and error text are both referenced by aria-describedby (hint first, error second).</li>
+        <li>Errors use text (“Error:” prefix), a thicker border and colour — never colour alone (SC 1.4.1, 3.3.1).</li>
+        <li>Error-summary links jump to the field; in React focus moves to the summary on failed submit and an aria-live region announces field-level changes on blur.</li>
+        <li>autocomplete tokens (name, email) satisfy SC 1.3.5 Identify Input Purpose.</li>
+        <li>Radio group and checkbox are wrapped in fieldset/legend; all targets are at least 44px high.</li>
+        <li>On success React opens a confirmation dialog, traps focus inside it until Escape/Close, then returns focus to the trigger.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#">About the library</a></li>
+        <li><a href="#">Accessibility statement</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </nav>
+    <p>© Enlighten Public Library · A council community service</p>
+  </div>
+</footer>
+</body>
+</html>
