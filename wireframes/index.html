@@ -7,3 +7,136 @@
 <link rel="stylesheet" href="main.css">
 </head>
 
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">Enlighten Hub</a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="resources.html">Find resources</a></li>
+        <li><a href="booking.html">Book a room</a></li>
+        <li><a href="#">My bookings</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Learn, meet and explore at your library</h1>
+      <p class="lede">Free courses, study rooms, digital archives and events — all bookable by keyboard and screen reader.</p>
+
+      
+      <form role="search" action="resources.html" method="get" aria-label="Search the hub">
+        <label for="q">Search courses, rooms, archives and events</label>
+        <span class="hint" id="q-hint">For example: “spreadsheets”, “quiet room” or “local history”.</span>
+        <div class="toolbar">
+          <input type="search" id="q" name="q" aria-describedby="q-hint" autocomplete="off">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section" aria-labelledby="browse-heading">
+      <h2 id="browse-heading">Browse by type</h2>
+      <ul class="grid">
+        <li>
+          <article class="card">
+            <h3><a href="resources.html?type=course">Courses</a></h3>
+            <p class="meta">5 free courses · digital skills, careers, assistive tech</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3><a href="resources.html?type=room">Rooms</a></h3>
+            <p class="meta">4 spaces · quiet study, group work, assistive technology suite</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3><a href="resources.html?type=archive">Digital archive</a></h3>
+            <p class="meta">4 collections · audiobooks, large print, local history</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <h3><a href="resources.html?type=event">Events</a></h3>
+            <p class="meta">4 upcoming · talks, storytime, book club</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Happening this month</h2>
+      <ul class="grid">
+        <li>
+          <article class="card">
+            <div class="ph" aria-hidden="true">image</div>
+            <p class="meta"><span class="tag">Event</span></p>
+            <h3><a href="booking.html">Accessible Storytime</a></h3>
+            <p class="meta"><time datetime="2026-10-17T10:00">Sat 17 Oct, 10:00</time> · Children’s Library</p>
+            <p class="meta">SASL interpreted · Wheelchair accessible</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="ph" aria-hidden="true">image</div>
+            <p class="meta"><span class="tag">Course</span></p>
+            <h3><a href="booking.html">Screen Reader Basics with NVDA</a></h3>
+            <p class="meta"><time datetime="2026-10-20T14:00">Tue 20 Oct, 14:00</time> · Assistive Technology Suite</p>
+            <p class="meta">Hearing loop · Screen-reader friendly</p>
+          </article>
+        </li>
+        <li>
+          <article class="card">
+            <div class="ph" aria-hidden="true">image</div>
+            <p class="meta"><span class="tag">Event</span></p>
+            <h3><a href="booking.html">Book Club: Frankenstein</a></h3>
+            <p class="meta"><time datetime="2026-10-28T18:00">Wed 28 Oct, 18:00</time> · Online</p>
+            <p class="meta">Captions · Large-print copies available</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <aside class="section card" aria-labelledby="help-heading">
+      <h2 id="help-heading">Need help using the hub?</h2>
+      <p>Our assistive technology suite has NVDA, JAWS, ZoomText and a braille display. Staff can book a room or course for you by phone.</p>
+      <p><a href="#">Accessibility statement</a> · <a href="tel:+27510000000">Call 051 000 0000</a></p>
+    </aside>
+
+    <section class="annotations" aria-labelledby="notes-a">
+      <h2 id="notes-a">Wireframe annotations (for reviewers)</h2>
+      <ul>
+        <li>Landmarks: header (banner), nav “Primary”, main, 3 sections, aside (complementary), footer (contentinfo). One &lt;h1&gt;; headings never skip a level.</li>
+        <li>Skip link is the first tab stop; it moves focus to &lt;main tabindex="-1"&gt;.</li>
+        <li>Search is a native GET form with a visible label and hint wired by aria-describedby — no JS required.</li>
+        <li>Card links are the heading text only (no nested interactive controls inside a link), so each card is one tab stop with a meaningful name.</li>
+        <li>Placeholder images are aria-hidden: in the build they become decorative or receive real alt text.</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#">About the library</a></li>
+        <li><a href="#">Accessibility statement</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </nav>
+    <p>© Enlighten Public Library · A council community service</p>
+  </div>
+</footer>
+</body>
+</html>
