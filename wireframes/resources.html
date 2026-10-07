@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find resources-Enlighten Learning.</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html">Enlighten Hub</a>
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html" aria-current="page">Find resources</a></li>
+        <li><a href="booking.html">Book a room</a></li>
+        <li><a href="#">My bookings</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html" aria-current="page">Find resources</a></li>
+      </ol>
+    </nav>
+
+    <h1>Find resources</h1>
+
+    <div class="listing">
+      <aside class="filters" aria-labelledby="filters-heading">
+        <h2 id="filters-heading">Filter results</h2>
+        <form action="resources.html" method="get">
+          <details open>
+            <summary>Resource type</summary>
+            <fieldset>
+              <legend class="visually-hidden">Resource type</legend>
+              <div class="check"><input type="checkbox" id="t-course" name="type" value="course"><label for="t-course">Courses (5)</label></div>
+              <div class="check"><input type="checkbox" id="t-room" name="type" value="room"><label for="t-room">Rooms (4)</label></div>
+              <div class="check"><input type="checkbox" id="t-archive" name="type" value="archive"><label for="t-archive">Digital archive (4)</label></div>
+              <div class="check"><input type="checkbox" id="t-event" name="type" value="event"><label for="t-event">Events (4)</label></div>
+            </fieldset>
+          </details>
+          <details>
+            <summary>Format</summary>
+            <fieldset>
+              <legend class="visually-hidden">Format</legend>
+              <div class="check"><input type="radio" id="f-any" name="format" value="" checked><label for="f-any">Any format</label></div>
+              <div class="check"><input type="radio" id="f-in" name="format" value="in-person"><label for="f-in">In person</label></div>
+              <div class="check"><input type="radio" id="f-on" name="format" value="online"><label for="f-on">Online</label></div>
+            </fieldset>
+          </details>
+          <details>
+            <summary>Accessibility features</summary>
+            <fieldset>
+              <legend class="visually-hidden">Accessibility features</legend>
+              <div class="check"><input type="checkbox" id="a-wc" name="access" value="wheelchair"><label for="a-wc">Wheelchair accessible</label></div>
+              <div class="check"><input type="checkbox" id="a-loop" name="access" value="loop"><label for="a-loop">Hearing loop</label></div>
+              <div class="check"><input type="checkbox" id="a-sasl" name="access" value="sign"><label for="a-sasl">Sign language (SASL)</label></div>
+              <div class="check"><input type="checkbox" id="a-cap" name="access" value="captions"><label for="a-cap">Captions</label></div>
+              <div class="check"><input type="checkbox" id="a-sr" name="access" value="screen-reader"><label for="a-sr">Screen-reader friendly</label></div>
+            </fieldset>
+          </details>
+          <button class="btn btn-primary" type="submit">Apply filters</button>
+        </form>
+      </aside>
+
+      <section aria-labelledby="results-heading">
+        <h2 id="results-heading" class="visually-hidden">Results</h2>
+
+        <form role="search" action="resources.html" method="get" aria-label="Search resources">
+          <label for="q">Search by keyword</label>
+          <div class="toolbar">
+            <input type="search" id="q" name="q">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </div>
+        </form>
+
+        
+        <p class="results-count">Showing 4 of 17 resources</p>
+
+        <ul class="grid">
+          <li>
+            <article class="card">
+              <p class="meta"><span class="tag">Course</span> · In person</p>
+              <h3><a href="booking.html">Digital Skills for Beginners</a></h3>
+              <p>Six friendly sessions on email, safe browsing and online forms.</p>
+              <p class="meta">Adults · Wheelchair accessible · Hearing loop</p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <p class="meta"><span class="tag">Room</span> · In person</p>
+              <h3><a href="booking.html">Assistive Technology Suite</a></h3>
+              <p>Private room with NVDA, JAWS, ZoomText and a 40-cell braille display.</p>
+              <p class="meta">All ages · Wheelchair accessible · Screen-reader friendly</p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <p class="meta"><span class="tag">Archive</span> · Online</p>
+              <h3><a href="booking.html">Audiobook Classics (DAISY)</a></h3>
+              <p>Navigable DAISY audiobooks of public-domain classics.</p>
+              <p class="meta">All ages · Screen-reader friendly · Audio</p>
+            </article>
+          </li>
+          <li>
+            <article class="card">
+              <p class="meta"><span class="tag">Event</span> · Online</p>
+              <h3><a href="booking.html">Book Club: Frankenstein</a></h3>
+              <p>Monthly discussion with captions and large-print copies.</p>
+              <p class="meta">Adults · Captions · Large print</p>
+            </article>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="annotations" aria-labelledby="notes-b">
+      <h2 id="notes-b">Wireframe annotations (for reviewers)</h2>
+      <ul>
+        <li>Filters sit in an &lt;aside&gt; landmark; each group is a &lt;fieldset&gt; with a legend so screen readers announce the group name on entry.</li>
+        <li>&lt;details&gt;/&lt;summary&gt; gives keyboard (Enter/Space) and expanded/collapsed state for free. React: &lt;button aria-expanded aria-controls&gt;.</li>
+        <li>Resource-type chips in React become toggle buttons with aria-pressed, plus a live result count.</li>
+        <li>Tab order follows DOM order: skip link → nav → breadcrumb → filters → search → results.</li>
+        <li>Breadcrumb uses &lt;nav aria-label="Breadcrumb"&gt; and an ordered list.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#">About the library</a></li>
+        <li><a href="#">Accessibility statement</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </nav>
+    <p>© Enlighten Public Library · A council community service</p>
+  </div>
+</footer>
+</body>
+</html>
