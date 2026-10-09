@@ -1,7 +1,7 @@
 {
   "name": "enlighten-hub",
   "version": "1.0.0",
-  "description": "Enlighten Learning & Resource Hub — accessible React prototype (ticket MD-2026-0143)",
+  "description": "Enlighten Learning & Resource Hub — accessible React prototype",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
