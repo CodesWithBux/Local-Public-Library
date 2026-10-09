@@ -9,11 +9,11 @@ export function ResourceCard({ resource, headingLevel = 3 }) {
     <article className="card">
       <div className="cover" style={{ background: resource.color }} aria-hidden="true">
         <span className="cover-type">{typeLabel(resource.type)}</span>
-        <span className="cover-title">{resource.title}</span>
       </div>
       <div className="card-body">
         <p className="card-kicker">
-          <span className="tag">{typeLabel(resource.type)}</span> · {formatLabel(resource.format)} · {resource.audience}
+          <span className="visually-hidden">{typeLabel(resource.type)} · </span>
+          {formatLabel(resource.format)} · {resource.audience}
         </p>
         <H className="card-title">
           <Link to={`/resources/${resource.id}`}>{resource.title}</Link>
@@ -142,6 +142,11 @@ export default function ResourcesPage() {
   }, [results.length, params, announce]);
 
   const searchRef = useRef(null);
+  const countRef = useRef(null);
+  const skipToResults = (e) => {
+    e.preventDefault();
+    countRef.current?.focus();
+  };
   const typeCount = (id) => RESOURCES.filter((r) => r.type === id).length;
 
   return (
@@ -181,6 +186,10 @@ export default function ResourcesPage() {
             ))}
           </div>
 
+          <a href="#results-count" className="skip-results" onClick={skipToResults}>
+            Skip to results ({results.length})
+          </a>
+
           <Disclosure title="Format" badge={filters.format ? '1' : null}>
             <fieldset>
               <legend className="visually-hidden">Format</legend>
@@ -201,8 +210,9 @@ export default function ResourcesPage() {
           </Disclosure>
 
           <Disclosure title="Accessibility features" badge={filters.access.length || null}>
-            <fieldset>
-              <legend className="visually-hidden">Accessibility features (show resources with all selected)</legend>
+            <p id="access-hint" className="hint">Shows only resources that have every feature you tick.</p>
+            <fieldset aria-describedby="access-hint">
+              <legend className="visually-hidden">Accessibility features</legend>
               {ACCESS_FEATURES.map((a) => (
                 <div className="check" key={a.id}>
                   <input
@@ -218,13 +228,25 @@ export default function ResourcesPage() {
           </Disclosure>
 
           <Disclosure title="Audience" badge={filters.audience ? '1' : null}>
-            <label htmlFor="audience">Who is it for?</label>
-            <select id="audience" value={filters.audience} onChange={(e) => setSingle('audience', e.target.value)}>
-              <option value="">Anyone</option>
-              {AUDIENCES.map((a) => (
-                <option key={a} value={a}>{a}</option>
-              ))}
-            </select>
+            <fieldset>
+              <legend className="visually-hidden">Who is it for?</legend>
+              {['', ...AUDIENCES].map((a) => {
+                const id = `audience-${a ? a.toLowerCase().replace(/\s+/g, '-') : 'any'}`;
+                return (
+                  <div className="check" key={id}>
+                    <input
+                      type="radio"
+                      id={id}
+                      name="audience"
+                      value={a}
+                      checked={filters.audience === a}
+                      onChange={() => setSingle('audience', a)}
+                    />
+                    <label htmlFor={id}>{a || 'Anyone'}</label>
+                  </div>
+                );
+              })}
+            </fieldset>
           </Disclosure>
         </aside>
 
@@ -259,7 +281,7 @@ export default function ResourcesPage() {
             </div>
           </form>
 
-          <p className="results-count" id="results-count">
+          <p className="results-count" id="results-count" ref={countRef} tabIndex={-1}>
             Showing <strong>{results.length}</strong> of {RESOURCES.length} resources
           </p>
 

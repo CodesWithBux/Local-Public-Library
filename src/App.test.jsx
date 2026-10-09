@@ -282,7 +282,20 @@ describe('Keyboard navigation and focus management', () => {
     ]);
     expect(order[5]).toBe('Home');
     expect(order.slice(6, 10)).toEqual(['Courses(5)', 'Rooms(4)', 'Digital archive(4)', 'Events(4)']);
+    expect(order[10]).toBe('Skip to results (17)');
     expect(order.indexOf('Accessibility features')).toBeLessThan(order.indexOf('resource-search'));
+  });
+
+  it('skip to results link jumps past the filters to the result count', async () => {
+    const user = userEvent.setup();
+    renderApp('/resources');
+    await user.click(screen.getByRole('button', { name: /^Courses/ }));
+    const skip = screen.getByRole('link', { name: 'Skip to results (5)' });
+    skip.focus();
+    await user.keyboard('{Enter}');
+    expect(screen.getByText(/Showing/)).toHaveFocus();
+    await user.tab();
+    expect(document.activeElement).toHaveAccessibleName('Digital Skills for Beginners');
   });
 
   it('cancelling a booking moves focus to the next Cancel button and announces it', async () => {

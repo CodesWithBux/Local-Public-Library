@@ -98,12 +98,14 @@ function Layout() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <nav aria-label="Footer">
+          <h2 className="footer-heading">Contact the library</h2>
+          <address>
             <ul className="footer-links">
-              <li><a href="tel:+27510000000">Call the library: 051 000 0000</a></li>
+              <li><a href="tel:+27510000000">Call 051 000 0000</a></li>
+              <li><a href="mailto:info@enlightenlibrary.co.za">Email info@enlightenlibrary.co.za</a></li>
             </ul>
-          </nav>
-          <p>© Enlighten Public Library · A council community service · Prototype for ticket MD-2026-0143</p>
+          </address>
+          <p className="footer-legal">© Enlighten Public Library · A council community service</p>
         </div>
       </footer>
     </div>

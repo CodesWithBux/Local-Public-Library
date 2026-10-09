@@ -18,7 +18,7 @@ export default function HomePage() {
           <p className="kicker">Your public library</p>
           <h1 id="hero-heading" ref={headingRef} tabIndex={-1}>Learn, meet and explore at your library</h1>
           <p className="lede">
-            Free courses, study rooms, digital archives and events — every one bookable by keyboard and screen reader.
+            Free courses, study rooms, digital archives and events.
           </p>
           <form
             role="search"
@@ -30,7 +30,7 @@ export default function HomePage() {
             }}
           >
             <label htmlFor="home-search">Search courses, rooms, archives and events</label>
-            <span className="hint" id="home-search-hint">For example: “spreadsheets”, “quiet room” or “local history”.</span>
+            <span className="hint" id="home-search-hint">Try “spreadsheets” or “quiet room”.</span>
             <div className="search-row">
               <input id="home-search" type="search" value={q} onChange={(e) => setQ(e.target.value)} aria-describedby="home-search-hint" autoComplete="off" />
               <button className="btn btn-primary" type="submit">Search</button>
