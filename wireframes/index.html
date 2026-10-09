@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home-Enlighten Learning &amp; Resource Hub (wireframe)</title>
+<title>Home — Enlighten Learning &amp; Resource Hub (wireframe)</title>
 <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
+<!-- WIREFRAME (a): Landing / Discovery page. Semantic HTML5 + CSS only, no JavaScript. -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header">
@@ -29,12 +29,12 @@
 
     <section class="hero" aria-labelledby="hero-heading">
       <h1 id="hero-heading">Learn, meet and explore at your library</h1>
-      <p class="lede">Free courses, study rooms, digital archives and events — all bookable by keyboard and screen reader.</p>
+      <p class="lede">Free courses, study rooms, digital archives and events.</p>
 
-      
+      <!-- Native GET form: works with no JavaScript, submits to the listing page -->
       <form role="search" action="resources.html" method="get" aria-label="Search the hub">
         <label for="q">Search courses, rooms, archives and events</label>
-        <span class="hint" id="q-hint">For example: “spreadsheets”, “quiet room” or “local history”.</span>
+        <span class="hint" id="q-hint">Try “spreadsheets” or “quiet room”.</span>
         <div class="toolbar">
           <input type="search" id="q" name="q" aria-describedby="q-hint" autocomplete="off">
           <button class="btn btn-primary" type="submit">Search</button>
@@ -114,7 +114,7 @@
     <section class="annotations" aria-labelledby="notes-a">
       <h2 id="notes-a">Wireframe annotations (for reviewers)</h2>
       <ul>
-        <li>Landmarks: header (banner), nav “Primary”, main, 3 sections, aside (complementary), footer (contentinfo). One &lt;h1&gt;; headings never skip a level.</li>
+        <li>Landmarks: header (banner), nav “Primary”, main, 3 sections, aside (complementary), footer (contentinfo) with a “Contact the library” heading. One &lt;h1&gt;; headings never skip a level.</li>
         <li>Skip link is the first tab stop; it moves focus to &lt;main tabindex="-1"&gt;.</li>
         <li>Search is a native GET form with a visible label and hint wired by aria-describedby — no JS required.</li>
         <li>Card links are the heading text only (no nested interactive controls inside a link), so each card is one tab stop with a meaningful name.</li>
@@ -127,15 +127,14 @@
 
 <footer class="site-footer">
   <div class="container">
-    <nav aria-label="Footer">
+    <h2 class="footer-heading">Contact the library</h2>
+    <address>
       <ul>
-        <li><a href="#">About the library</a></li>
-        <li><a href="#">Accessibility statement</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Privacy</a></li>
+        <li><a href="tel:+27510000000">Call 051 000 0000</a></li>
+        <li><a href="mailto:info@enlightenlibrary.co.za">Email info@enlightenlibrary.co.za</a></li>
       </ul>
-    </nav>
-    <p>© Enlighten Public Library · A council community service</p>
+    </address>
+    <p class="footer-legal">© Enlighten Public Library · A council community service</p>
   </div>
 </footer>
 </body>

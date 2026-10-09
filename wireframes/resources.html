@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Find resources-Enlighten Learning.</title>
+<title>Find resources — Enlighten Learning &amp; Resource Hub (wireframe)</title>
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
+<!-- WIREFRAME (b): Resource listing / search page. Semantic HTML5 + CSS only, no JavaScript.
+     Filter groups use native <details>/<summary>: the browser exposes expanded/collapsed
+     state to assistive tech without any script — the React build replicates this with
+     <button aria-expanded>. -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-header">
@@ -60,7 +63,8 @@
           </details>
           <details>
             <summary>Accessibility features</summary>
-            <fieldset>
+            <p class="hint" id="access-hint">Shows only resources that have every feature you tick.</p>
+            <fieldset aria-describedby="access-hint">
               <legend class="visually-hidden">Accessibility features</legend>
               <div class="check"><input type="checkbox" id="a-wc" name="access" value="wheelchair"><label for="a-wc">Wheelchair accessible</label></div>
               <div class="check"><input type="checkbox" id="a-loop" name="access" value="loop"><label for="a-loop">Hearing loop</label></div>
@@ -84,7 +88,7 @@
           </div>
         </form>
 
-        
+        <!-- In the React build this paragraph is an aria-live="polite" region -->
         <p class="results-count">Showing 4 of 17 resources</p>
 
         <ul class="grid">
@@ -139,15 +143,14 @@
 
 <footer class="site-footer">
   <div class="container">
-    <nav aria-label="Footer">
+    <h2 class="footer-heading">Contact the library</h2>
+    <address>
       <ul>
-        <li><a href="#">About the library</a></li>
-        <li><a href="#">Accessibility statement</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Privacy</a></li>
+        <li><a href="tel:+27510000000">Call 051 000 0000</a></li>
+        <li><a href="mailto:info@enlightenlibrary.co.za">Email info@enlightenlibrary.co.za</a></li>
       </ul>
-    </nav>
-    <p>© Enlighten Public Library · A council community service</p>
+    </address>
+    <p class="footer-legal">© Enlighten Public Library · A council community service</p>
   </div>
 </footer>
 </body>
