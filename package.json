@@ -7,7 +7,9 @@
     "build": "vite build",
     "preview": "vite preview --port 4173 --strictPort",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "predeploy": "npm test && npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Phatsimo Bakang Maseng (CodesWithBux)",
   "license": "MIT",
@@ -22,10 +24,12 @@
     "@testing-library/user-event": "^14.6.7",
     "@vitejs/plugin-react": "^6.1.2",
     "axe-core": "^4.14.0",
+    "gh-pages": "^6.3.0",
     "jsdom": "^29.1.1",
     "vite": "^8.3.3",
     "vitest": "^5.0.3"
   },
   "private": true,
-  "type": "module"
+  "type": "module",
+  "homepage": "https://codeswithbux.github.io/Local-Public-Library/"
 }
