@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Enlighten is an accessible React application for a local public library. Visitors can search free courses, reserve study rooms, request accessible copies from the digital archive and register for events, using only a keyboard or a screen reader if they need to. It grows out of my earlier project, *Enlighten — Public Library* (a vanilla HTML/CSS/JS eBook store): the colours, fonts and the browse → detail → book flow are carried over and rebuilt in React with accessibility as a first requirement, not an extra.
+Enlighten is an accessible React application for a local public library. Visitors can search free courses, reserve study rooms, request accessible copies from the digital archive and register for events, using only a keyboard or a screen reader if they need to. It grows out of my earlier project, *Enlighten — Public Library*: the colours, fonts and the browse → detail → book flow are carried over and rebuilt in React with accessibility as a first requirement, not an extra.
 
 The brief assigns the domain from the last digit of the candidate's ID. My Candidate ID ends in an **odd** number, so this is the **Local Public Library — Adaptive Learning & Resource Portal**.
 
