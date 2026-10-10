@@ -1,0 +1,87 @@
+KEYBOARD-ONLY JOURNEY (Playwright, real Chromium, keyboard events only)
+Tab (first stop)  →  focus: a "Skip to main content" — ring 3px rgb(43, 108, 176)
+Enter on skip link  →  focus: main "YOUR PUBLIC LIBRARY Learn, meet and explore at your library Free cours" — ring 3px rgb(43, 108, 176)
+Tab ×19 (wraps through page back to header)  →  focus: a "Find resources" — ring 3px rgb(43, 108, 176)
+Enter on "Find resources" (SPA route change)  →  focus: h1 "Find resources" — ring 3px rgb(43, 108, 176)
+   document.title: "Find resources — Enlighten Hub"
+Tab ×2  →  focus: button "Rooms (4)" [aria-pressed=false] — ring 3px rgb(43, 108, 176)
+Space on Rooms chip  →  focus: button "✓ Rooms (4)" [aria-pressed=true] — ring 3px rgb(43, 108, 176)
+   polite live region: "Showing 4 of 17 resources."
+Enter on Rooms chip again  →  focus: button "Rooms (4)" [aria-pressed=false] — ring 3px rgb(43, 108, 176)
+   polite live region: "Showing 17 of 17 resources."
+Enter on Rooms chip (pressed again)  →  focus: button "✓ Rooms (4)" [aria-pressed=true] — ring 3px rgb(43, 108, 176)
+Tab ×5  →  focus: button "Accessibility features" [aria-expanded=false] — ring 3px rgb(43, 108, 176)
+Enter on accordion header  →  focus: button "Accessibility features" [aria-expanded=true] — ring 3px rgb(43, 108, 176)
+Tab into expanded panel  →  focus: input "Wheelchair accessible" — ring 3px rgb(43, 108, 176)
+Space on checkbox  →  focus: input "Wheelchair accessible" — ring 3px rgb(43, 108, 176)
+   polite live region: "Showing 4 of 17 resources."
+Tab ×9 to result card link  →  focus: a "Assistive Technology Suite" — ring 3px rgb(43, 108, 176)
+Enter on card link (SPA route change)  →  focus: h1 "Assistive Technology Suite" — ring 3px rgb(43, 108, 176)
+   document.title: "Assistive Technology Suite — Enlighten Hub"
+Tab ×12 to submit (form left empty)  →  focus: button "Reserve room" — ring 3px rgb(43, 108, 176)
+Enter on "Reserve room" with empty form  →  focus: section "There are 6 problems with your booking Enter a date Choose a start tim" — ring 3px rgb(43, 108, 176)
+   document.title: "Error: Assistive Technology Suite — Enlighten Hub"
+Tab (first error link)  →  focus: a "Enter a date" — ring 3px rgb(43, 108, 176)
+Enter on error link  →  focus: input "Date" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+Tab ×1 to Date  →  focus: input "Date" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+Tab ×2 (Chromium's native date input has 3 internal segments)  →  focus: select "Start time" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+ArrowDown ×2 on Start time select  →  focus: select "Start time" — ring 3px rgb(43, 108, 176)
+Tab ×3 (via duration radios, number of people)  →  focus: input "Full name" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+Typed "thandiwe@" in Email, then Tab  →  focus: input "Library card number" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+   polite live region: "Email address: Enter an email address in the format name@example.com"
+Shift+Tab back, completed the address, Tab  →  focus: input "Library card number" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+   polite live region: "Email address is now valid."
+Tab ×2 to agreement checkbox  →  focus: input "I agree to the library’s room and resource guidelines" [aria-invalid=true] — ring 3px rgb(43, 108, 176)
+Space to tick, Tab  →  focus: button "Reserve room" — ring 3px rgb(43, 108, 176)
+Enter on "Reserve room" (valid) → dialog  →  focus: h2 "Booking confirmed" — ring 3px rgb(43, 108, 176)
+   #app-shell inert: true
+Tab inside dialog  →  focus: a "View my bookings" — ring 3px rgb(43, 108, 176)
+Tab inside dialog  →  focus: button "Close" — ring 3px rgb(43, 108, 176)
+Tab inside dialog  →  focus: a "View my bookings" — ring 3px rgb(43, 108, 176)
+Shift+Tab inside dialog  →  focus: button "Close" — ring 3px rgb(43, 108, 176)
+Escape  →  focus: button "Reserve room" — ring 3px rgb(43, 108, 176)
+   dialog still present: false
+
+FULL TAB SEQUENCES
+
+=== Home (/) ===
+ 1. a "Skip to main content" — ring 3px rgb(43, 108, 176)
+ 2. a "Enlighten Learning & Resource Hub" [aria-current=page] — ring 3px rgb(43, 108, 176)
+ 3. a "Home" [aria-current=page] — ring 3px rgb(43, 108, 176)
+ 4. a "Find resources" — ring 3px rgb(43, 108, 176)
+ 5. a "My bookings 1 (1 booking)" — ring 3px rgb(43, 108, 176)
+ 6. input "Search courses, rooms, archives and events" — ring 3px rgb(43, 108, 176)
+ 7. button "Search" — ring 3px rgb(43, 108, 176)
+ 8. a "Courses 5 available" — ring 3px rgb(43, 108, 176)
+ 9. a "Rooms 4 available" — ring 3px rgb(43, 108, 176)
+10. a "Digital archive 4 available" — ring 3px rgb(43, 108, 176)
+11. a "Events 4 available" — ring 3px rgb(43, 108, 176)
+12. a "See all events" — ring 3px rgb(43, 108, 176)
+13. a "Accessible Storytime" — ring 3px rgb(43, 108, 176)
+14. a "Screen Reader Basics with NVDA" — ring 3px rgb(43, 108, 176)
+15. a "Book Club: Frankenstein" — ring 3px rgb(43, 108, 176)
+16. a "Assistive Technology Suite" — ring 3px rgb(43, 108, 176)
+17. a "051 000 0000" — ring 3px rgb(43, 108, 176)
+18. a "Call 051 000 0000" — ring 3px rgb(255, 216, 77)
+19. a "Email info@enlightenlibrary.co.za" — ring 3px rgb(255, 216, 77)
+20. (body)
+21. a "Skip to main content" — ring 3px rgb(43, 108, 176)
+    (sequence wrapped — no keyboard trap: focus left the page and returned)
+
+=== Resource listing (/resources) ===
+ 1. a "Skip to main content" — ring 3px rgb(43, 108, 176)
+ 2. a "Enlighten Learning & Resource Hub" — ring 3px rgb(43, 108, 176)
+ 3. a "Home" — ring 3px rgb(43, 108, 176)
+ 4. a "Find resources" [aria-current=page] — ring 3px rgb(43, 108, 176)
+ 5. a "My bookings 1 (1 booking)" — ring 3px rgb(43, 108, 176)
+ 6. a "Home" — ring 3px rgb(43, 108, 176)
+    (sequence wrapped — no keyboard trap: focus left the page and returned)
+
+=== Detail + booking form (/resources/nvda-basics) ===
+ 1. a "Skip to main content" — ring 3px rgb(43, 108, 176)
+ 2. a "Enlighten Learning & Resource Hub" — ring 3px rgb(43, 108, 176)
+ 3. a "Home" — ring 3px rgb(43, 108, 176)
+ 4. a "Find resources" [aria-current=page] — ring 3px rgb(43, 108, 176)
+ 5. a "My bookings 1 (1 booking)" — ring 3px rgb(43, 108, 176)
+ 6. a "Home" — ring 3px rgb(43, 108, 176)
+    (sequence wrapped — no keyboard trap: focus left the page and returned)
