@@ -148,9 +148,6 @@ Every ARIA attribute comes from React state in the same render, so what a screen
 
 **Keyboard check:** `evidence/keyboard-sequence.txt` records a full journey using only the keyboard: skip link, navigation, filters, a resource, a failed submit, fixing the fields, the dialog and Escape. Every stop has a visible focus ring and nothing traps the keyboard except the dialog, which Escape closes.
 
-**Screen reader log:** automated tools can't confirm what a screen reader actually says, so these checks are done by hand.
-
-Tester: ____________ · Date: ____________
 
 | # | Step | Expected announcement | NVDA + Firefox | VoiceOver + Safari | Narrator + Edge |
 |---|---|---|---|---|---|
