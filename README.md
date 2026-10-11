@@ -148,40 +148,6 @@ Every ARIA attribute comes from React state in the same render, so what a screen
 
 **Keyboard check:** `evidence/keyboard-sequence.txt` records a full journey using only the keyboard: skip link, navigation, filters, a resource, a failed submit, fixing the fields, the dialog and Escape. Every stop has a visible focus ring and nothing traps the keyboard except the dialog, which Escape closes.
 
-
-| # | Step | Expected announcement | NVDA + Firefox | VoiceOver + Safari | Narrator + Edge |
-|---|---|---|---|---|---|
-| 1 | Load Home, move by landmark (`D`) | Banner, Primary navigation, main, "Need help…", footer | | | |
-| 2 | List headings (`H`) | One H1 "Learn, meet and explore…", then H2s in order | | | |
-| 3 | Activate **Find resources** | "Find resources, heading level 1" | | | |
-| 4 | Press **Rooms** with Space | "Rooms (4), toggle button, pressed", then "Showing 4 of 17 resources." | | | |
-| 5 | Clear Rooms, press **Courses**, Tab, Enter | "Skip to results (5), link", then focus on "Showing 5 of 17 resources" | | | |
-| 6 | Open **Audience** and arrow through it | "Audience, button, expanded"; "Anyone, radio button, checked, 1 of 5" | | | |
-| 7 | Open **Assistive Technology Suite** | "Assistive Technology Suite, heading level 1" | | | |
-| 8 | Tab to Email | "Email address, edit, We'll send your confirmation here." | | | |
-| 9 | Type `thandiwe@`, then Tab | "Email address: Enter an email address in the format name@example.com" | | | |
-| 10 | Submit the empty form | "There are 6 problems with your booking" and the list | | | |
-| 11 | Tab into a field with an error | "…, invalid entry, [hint], Error: [message]" | | | |
-| 12 | Submit a valid form | "Booking confirmed, dialog, heading level 2" and the reference | | | |
-| 13 | Tab three times, then Escape | Focus stays in the dialog; Escape returns to "Reserve room, button" | | | |
-| 14 | My bookings → Cancel | "Booking EH-… cancelled."; focus moves to the next Cancel button or the heading | | | |
-
-Keyboard-only pass (no mouse): ☐ Chrome ☐ Firefox ☐ Edge · Windows High Contrast: ☐
-
----
-
-## What Changed from Enlighten v1
-
-| Enlighten v1 | This project |
-|---|---|
-| A button nested inside the card link | The card title is the only link, with one Tab stop |
-| Grey text at 4.45:1, just under the AA minimum | Darker text at 7.08:1; the lighter grey is used only for borders |
-| A filter dropdown that didn't say whether it was open | Filter groups with `aria-expanded`, toggle buttons with `aria-pressed`, radio buttons and a spoken result count |
-| Checkout errors not linked to their fields | `aria-invalid`, `aria-describedby`, an error summary that receives focus, and announcements |
-| Separate pages built with `innerHTML` | A React app that moves focus and updates the page title on every route change |
-
-Kept from v1: the colour tokens, the Fraunces and Inter fonts, the coloured cover strips, the skip link and reduced-motion support.
-
 ## Reflection
 
 The biggest change for me was testing with a screen reader instead of only looking at the page. The site passed every automated check, but when I used Narrator the listing page felt slow and tiring, because I had to listen to every filter before reaching a single result. That led to the "Skip to results" link and simpler cards. Automated tools catch missing labels and low contrast; only listening shows whether a page is pleasant to use.
